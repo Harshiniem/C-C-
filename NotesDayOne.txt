@@ -1,0 +1,396 @@
+Day 1: 19-Dec-2025
+------------------
+	Good Morning Guys...
+	
+	Sudhakar Palanivelu
+	
+C/C++ Programming:
+------------------
+	What is the programming Environment?
+		Which ever flavor of Linux:
+			Ubunto, CentOS, Fedora, Kali, OpenSUSE.
+		
+	
+====================================================	
+	Data Types:
+		
+		int var; # 4 Bytes or 32 bits
+			--> 
+			short -->  2 Bytes or 16 bits  --> 0 - 65535
+			long  -->  8 Bytes or 64 bits
+------------------------------------------------------
+	-ve numbers are stored as 2's complement
+	
+
+For 3 Bit integer:
+------------------
+		2 ^ 3 --> 8  --> 0 - 7  --> unsigned integer
+		-2 ^ 2   to + 2 ^ 2 - 1 --> Signed integer
+============---------------
+Signed	Binary 	  Unsigned 
+--------------------------
+0		000  ---> 0
+1		001  ---> 1
+2		010  ---> 2
+3		011  ---> 3
+-----------------	
+-4		100  ---> 4
+-3		101  ---> 5
+-2		110  ---> 6
+-1		111  ---> 7
+--------------------------				
+	Signed Integers --> int or signed int 
+	Unsigned Integers --> unsigned int 
+
+For 8 Bit integer(1 Byte):
+------------------
+		2 ^ 8 --> 256  --> 0 - 255  --> unsigned integer
+		-2 ^ 7   to + 2 ^ 7 - 1 --> Signed integer
+				-128 to 127 
+============---------------
+Signed	Binary 	  Unsigned 
+--------------------------
+0		0000 0000  ---> 0
+1		0000 0001  ---> 1
+2		0000 0010  ---> 2
+3		0000 0011  ---> 3
+.
+.
+127		0111 1111  ---> 127	
+-----------------	
+-128	1000 0000  ---> 129
+-127	1000 0001  ---> 128
+-126	1000 0010  ---> 127
+-125	1000 0011  ---> 126
+.
+.
+-1		1111 1111  ---> 255
+-----------------------------				
+	Signed Integers --> int or signed int 
+	Unsigned Integers --> unsigned int 
+	
+=======================================================
+Floating Numbers:(numbers with decimal values)
+----------------------------------------------
+	float  --> 32 bit Floating point number --> Single precision
+	double --> 64 bit Floating point number --> Double precision
+
+	How are they represented in the memory:
+	---------------------------------------
+		C/C++ Language follows IEEE 754 standard for floating point representation 
+		
+		float : 1 8 23 --> sign   exponential   Mantissa
+		double: 1 11 52 --> sign   exponential   Mantissa
+			To get more Info on how these numbers are converted and stored in memory please refer to the above mentioned IEEE document.
+---------------------------------------------------------
+	char :
+	------
+		1 Byte --> ASCII Representation
+		-------------------------------
+		Char 		Binary 				ASCII Value
+		'A'		---> 0100 0001 		--> 	65	
+		'B'		---> 0100 0010 		--> 	66
+		'C'		---> 0100 0011 		--> 	67		
+		.
+		.
+		'Z'		---> ....			--> 	90	
+	---------------------------------	
+		'a'		---> ....			--> 	97	
+		'b'		---> ....			--> 	98
+		.
+		.		
+		'z'	    ---> ....			--> 	122
+	----------------------------------
+		'0'		---> ....			--> 	48
+		.
+		.
+		'9'		---> ....			--> 	57
+===-----------------------------------=============		
+Operators:
+----------
+	Arithmetic: +, -, *, /, %
+	Relational: <, >, <=, >= , ==, !=
+	Logical: &&, ||, !
+	Increment/Decremtent: ++, --
+	Bitwise: <<, >>, &, |, ^, ~
+	Other/Special: [], ?:, , ...(ellipsis), ., -> ,(), *
+	
+-----------------------------------------------------------	
++, -, *, /, %:
+	Equation to calculate day of the week(Disparate Variation)
+
+d = 19,m = 12,Y = 2025
+-------------------------
+Bitwise Operators:
+
+Have two variables num and pos:
+
+	<<, & or >>, &, ?:	
+Explaination:
+-------------
+	1. Check whether given bit position in the number is ON or OFF.
+					   7654	3210	
+		num --> 10 --> 0000 1010	
+		pos --> 2
+If 	num = 10, pos 2
+Output:		
+	2 pos in number 10 is OFF 
+
+If	num = 10 and pos = 3
+Output:		
+	3 pos in number 10 is ON 
+=============================================
+num = 10, pos 2	
+res = num & 1 << pos ;
+0001 << 2  	--> 0100
+10 --> num		---> 1010
+1<<pos 			---> 0100  &
+					------
+					 0000 --> 0
+		res ? "ON" : "OFF" --> OFF
+==============================================
+num = 10, pos 3	
+res = num & 1 << pos ;
+0001 << 3  	--> 1000
+10 --> num		---> 1010
+1<<pos 			---> 1000  &
+					------
+					 1000 --> 8 --> res 
+		res ? "ON" : "OFF" --> ON		
+---------------------------------------	
+Conditional Operator:
+---------------------
+	res = (expr) ? True : False
+		If expr evaluates to 0, then the condiotion is False
+			else (Non-Zero) means True
+-------------------------------------------------
+
+
+Toggling a bit: bitToggle.c 
+---------------------------
+Take 2 numbers num and pos:
+If num = 10, pos 3	
+	1010 ---> 3 bit on 10 is ON 
+		after switching off 3 bit on 10 result is 
+	0010 --> 2
+Output:
+	After toggling 3 bit on 10 num is 2
+--------------------------------------------	
+If num = 10, pos 2	
+	1010 ---> 2 bit on 10 is OFF 
+		after switching off 2 bit on 10 result is 
+	1110 --> 14
+Output:
+	After toggling 2 bit on 10 num is 14
+===========================================================
+-----------------------------------------------------------
+Class Work:
+-----------
+	Create a program to perform simple arithmetic operations and output the results.
+	
+	Experiment with different data types, observing implicit conversion behavior.
+	Construct expressions using various operators and evaluate their results.
+----------------------------------------------------------
+Other Problems (optional Assignment):
+---------------
+	1. Left rotate --> Bring all those bits that are shifted on the MSB side to the LSB side 
+	2. Right Rotate  --> Bring all those bits that are shifted on the LSB side to the MSB side 
+===========================================================
+I/O Statements:
+---------------
+	We call them as formatted IO
+		scanf() --> Input function 
+		printf() --> Output function
+		
+	printf(const string , ...)
+		here ... (ellipsis operator) variable number of arguments.
+		
+	printf("Hello World!...\n");
+		--> Zero number of argument 
+		
+	var = 10
+	printf("Var values is %d\n", var);
+		Here in the first string argument we pass format specifier.
+
+	num = 10, pos = 3
+	printf("%d pos on %d\n", pos, num);
+================================================
+	int var ;
+	printf("Enter a num: ");
+	scanf("%d", &var);
+	printf("Entered var is %d\n", var);
+		
+		In printf we can use extra string , format specifier(%c, %d, %f) and escape characters(\n, \t).
+-----------------------------------------------------------
+Format specifiers:
+------------------
+	Commonly used...
+	
+	%c --> character 
+	%d --> signed character
+	%e --> float (scientific notation)
+	%f --> float (fixed notation)
+	%ld --> long integer
+	%hd --> short integer
+	
+	%lf --> double 
+	%u --> unsigned integer
+	%lu --> unsigned long integer
+	%hu --> unsigned short integer
+	
+	%s --> string or character array 
+---------------------------------------------------------
+Programming Constructs:
+-----------------------
+	Any kind of logic can be solved using 
+	1. sequential statement
+	2. conditional statement
+	3. Iterative/Looping statement
+
+Simple if:
+----------
+	if (condition )
+		single statement 
+		
+	or 
+
+	if (condition)
+	{
+		multiple statements 
+		multiple statements 
+	}
+if else:
+--------
+	if (condition)
+	{
+		some statements
+	}else {
+		some statements
+	}
+	
+if else if ladder:
+------------------
+	if(condition){
+	
+	}else if (condition){
+	
+	}else if (condition){
+	
+	}else {
+	
+	}
+
+======================================================
+1. Accept a number from the user, print whether the given number is even or odd.(evenOdd.c)
+	Accept a number: 100
+		100 is an Even number 
+	Accept a number: 101
+		101 is an Odd number 
+	
+2. Adjust your arithmetic operators problem(Day of the week) by adding the conditions on the month, Year. (dayOfWeekV1.c)
+	Here you can also modify to accept dd,mm,yyyy from the user.
+	
+3. Accept a number from the user. Print it with its correct suffix. (numSuffix.c)
+	Enter the number : 1
+	Output: 1st
+
+	Enter the number : 2
+	Output: 2nd
+
+	Enter the number : 23
+	Output: 23rd
+
+	Enter the number : 111
+	Output: 111th
+----------------------------------------------------------
+Switch case:
+------------
+	switch(expression){
+		case optionOne: //Integer or character
+			statements here 
+			statements here 
+			break;
+		case optionTwo: //Integer or character
+			statements here 
+			statements here 
+			break;
+		default:
+			statements here 
+			statements here 
+			break;
+	}
+===============================================
+in Tradional Programming Languages we use counter variable to control the flow of the loop.
+	1. variable to be initialized
+	2. condition to be checked on the value of the variable
+	3. alter the value.
+while loop Syntax:	
+-------------------
+	cnt = 0; //initialization 
+	while (cnt <= 10){ //condition checking 
+		printf("%d  ", cnt);
+		cnt++; //update or alter 
+	}
+	printf("\n");
+	
+do while syntax:
+----------------
+	cnt = 0 ;//initialization
+	do {
+		printf("%d  ", cnt);
+		cnt++; //alter or update
+	}while (cnt <= 10); //condition checking
+	printf("\n");
+
+for loop syntax:
+----------------
+	for (cnt=0; cnt<=10; cnt++)
+		printf("%d  ", cnt);
+	printf("\n");
+========================================================
+4. Write a program to print 1 .. 100 using all three loops:
+
+	for loop: 1 2 3 4 ..... 100
+	while loop: 1 2 3 4 ..... 100
+	do while loop: 1 2 3 4 ..... 100
+
+	Make sure you use single counter variable(re-use the same variable again in other loop).
+-----------------------------------------------------	
+5. Perform multiplication through addition and division using Russian Peasant method. Print along the steps. (RussianPeasant.c)
+	13 * 24 ===> 312
+----------------------------------------------------	
+	first    second    		--> result 
+	13			24     		-->	 0 + 24
+	6			48			--> 24
+    3			96			--> 24 + 96 --> 120
+	1			192         --> 120 + 192 --> 312	
+	Print res --> 312
+----------------------------------------------------	
+6. Write a program to add all the numbers which are multiples of 5 & 7 below  1000000(1 million(10 Lakhs)).
+----------------------------------------------------	
+7. dayOfWeekV2.c --> After finding the day Of Week using the previous done solution. Extend the same by printing the calendar of any given month and Year.
+
+if for example: Month and Year: 12 2025 --> w --> 1
+
+	Su Mo Tu We Th Fr Sa
+		1  2  3  4  5  6
+	7   8  9 10 11 12 13
+	14 15 16 17 18 19 20
+	21 22 23 24 25 26 27
+	28 29 30 	
+		Just 30 days for every month for the time being.
+Next:
+	Try to understand the following keywords used in loops:
+		break
+		continue
+-----------------------------------------------------------	
+8. Check Whether given number is prime or not?
+scenario #1:
+	Enter a num: 100
+	100 is NOT a prime 	
+scenario #2:
+	Enter a num: 101
+	101 is a prime 
+------------------------------------------------------------
+Next Topic:	Nesting of Loops:
+-----------------------------	
