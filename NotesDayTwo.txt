@@ -1,0 +1,333 @@
+Day 2: 22-Dec-2025
+------------------
+	Nesting of Loops:
+-----------------------------
+Next Topic:
+Functions
+
+	Defining a Function
+		Function Syntax and Structure
+		Writing Your First Function
+	Function Arguments and Return Values
+		Passing Data to Functions
+		Returning Data from Functions
+	Recursive Functions
+		Understanding Recursion
+Examples: Factorial and Fibonacci Series
+Exercises & Homework:
+	Create a calculator using functions for each arithmetic operation.
+	Write a recursive function to calculate the nth number in the Fibonacci series.
+	Develop a function that converts temperature between Celsius and Fahrenheit.
+Characters and Strings
+	Character Arrays
+	String Initialization and Use
+	String Handling Functions
+	Common Functions from <string.h>
+	Advanced String Manipulations
+	Working with Pointers and Strings
+	Custom String Functions
+Exercises & Homework:
+	Implement your own version of the strlen function.
+	Write a program that concatenates two strings without using strcat.
+	Create a string reverse function and test it with various inputs.
+	
+Nesting of Loops:
+	Using one loop statement inside another loop statement.
+	
+Try Nesting of loop:
+	1. Using while
+	2. using do while 
+
+Some Problems:
+--------------
+	1. Accept a number : 10
+		10   11  12  13 ...   19
+	10	100	 110 120 130	  190		
+	11  110  121 132 143 . .. 209
+	12 
+	.
+	.
+	19
+	
+	2. Print 25 prime numbers from a given number.
+	Accept a number: 100
+	101 103 107 109 ...
+---------------------------------------------------------
+Functions:
+----------
+	Define a program?
+		Set of instruction to perform a task
+		
+	In C, 
+		In C, every instruction(statements) is put inside a function whether it is main() or any other user defined function or some built-in function
+	
+	If your treat your program as a large task, each task can be divided into sub-tasks(Which in turn can be implemented separately). Each program is divided into sub-programs. In C, sub-programming is implemented using functions.
+	
+	Functions is the syntax/mechanism used to implement sub-programs/sub-tasks.
+	
+	Syntax for function in C:
+	-------------------------
+		Defining a function:
+		--------------------	
+			returnType functionName(arguments) {
+				statements here 
+				return value;
+			}
+		
+	Normally we use 3 statement approach for functions in C.
+	1. function prototype(declaration)
+	2. function definition(definition)
+	3. function calling(invoking a function)
+========================================================
+Let me demonstrate with a simple function syntax.
+
+	1. function with no arguments and no return type 
+		void funOne(){
+		
+		}
+		
+	2. function with arguments and no return type.
+		void funOne(int a, int b){
+		
+		}
+	
+	3. function with arguments and return type.
+		int funOne(int a, int b){
+			//statements here 
+			return res;
+		}
+===========================================================
+Problems:
+--------
+	1. Implement a function isPrime(num), taking number as an argument returning integer (0 or 1 for false or true).
+	
+	2. Implement printCalendarV1.c by dividing the logic into sub-tasks(functions). Function names and prototypes given below.	
+		int isLeap(Year);//
+		int maxDays(month, Year); //
+		int dayOfWeek(day, month, Year);
+		void printCalendar(month, Year);	
+------------------------------------------------------------
+Flow of program control:
+------------------------
+	In C, main() is the starting point. It is the first program to get started(also the last function to get finished).	
+
+	Recursive:
+	----------
+		1. Write a recursive function to print 1 to 10
+		2. Write a recursive function to calculate the factorial of a given number
+		3. Write a recursive function to find the nth number in the fibonacci series.
+-------------------------------------------------------------
+Arrays:
+-------
+	What are arrays?
+		Arrays are collection of similar(same) type(data type) store in contiguous location.
+		
+		If I want to store one or two values, then I can use normal variable.
+		If you want to store like 100 values or more values of same type then go for arrays.		
+		
+		int arr[100]; //array declaration here data type is int
+			//uninitialized array
+			
+		int arr[20] = {10, 20, 30 };//initialization
+			//partially intialized array
+			
+		int arr[] = {10, 20, 30, 40, 50};
+			//fully initialized array 
+			
+		int arr[];	//error 
+			//You have to specify size or initialize
+			
+
+		
+		//Here arr is created for storing 20 values, but initially stores only 3 values. Here size(20) is greater than assigned/initialized(3) values. In this case it is called as partial initialization.
+
+		Advantage of arrays is that one name is given for storing multiple values.
+		
+			arr[0] --> first element/data is stored here 
+			arr[1] --> second element/data is stored here 
+			arr[2] --> third element/data is stored here 
+			.
+			.
+			arr[99] --> Hundredth element/data 
+			
+			Here the numbers mentioned inside the square bracket is called index(position).
+Problems:
+=========
+	1. Declare an array of integers for storing 100 elements. 
+	accept the first element from the user. Assign the next 99 values by running a loop. Print the array data/contents.
+	
+	printf("Enter the first value: ");
+	scanf("%d", &arr[0]);
+	
+	Enter the first Value: 100
+	100 101 102 103 104 .... 199
+	
+	2. Use the function isPrime(num) written early, to check individual elements in the array for prime or not. If the element is prime, leave it as it is, else make the element 0. At the end you will have an array of prime numbers and zeros.
+
+	Enter the first Value: 100
+	100 101 102 103 104 .... 199
+	0 101 0 103 0 0 0 107 ... 197 0 199
+-----------------------	
+Character arrays and Strings:
+-----------------------------
+	char str[100]; //char array 
+
+Directory Structure for uploading files(s) into the git lab.
+------------------------------------------------------------
+ 
+	25SUB4505_U01/
+		|
+		| --> C_CPP/
+			|
+			|--> dayOne/
+				|
+				| --> Class/
+				| --> Assignment/
+			|--> dayTwo/
+				|
+				| --> Class/
+				| --> Assignment/
+			
+			
+Character and Strings:
+----------------------
+	char str[100]; //char array 			
+			
+
+	'a' - 'z' --> 97 - 122
+	'A' - 'Z' --> 65 - 90  --> 32 is difference 
+	'0' - '9' --> 48 - 57
+	
+	'0' --> 48 --> 0011 0000
+	'\0'--> 0  --> 0000 0000 --> Null character
+	
+	Strings in C, is represented as zero(NULL) terminated character array.
+For Example:
+-----------
+	Remember partial initialization of arrays.
+	
+	char strOne[20] = "Hello how";
+		In order for all string handling functions to work normally they are assumed to be terminated by null character.
+		
+	Common Functions from <string.h>:
+	---------------------------------
+		int strlen(const char *); 
+		
+		//syntax to find the length of a string (array of character terminated by null)
+		
+		char *strcpy(char *, const char *);
+		char *strncpy(char *, const char *, int);
+		
+		char *strcat(char *, const char *);
+		int strcmp(const char *, const char *);
+			--> return 0 if both strings are same 
+			--> -1 or 1 or difference in ASCII values
+-----------------------------------------------------------	
+	Here, In order to undertand the syntax of the above mentioned functions, 
+		char * --> modifiable (writable-->both read & write), 
+		const char * --> non modifiable(read only ).
+	
+	'h' == 'H' --> 32 --> 1
+	'H' == 'h' --> -32 --> -1
+	'h' == 'h' --> 0 
+Custom String Functions:
+------------------------		
+	Let us implement our own version of these functions.
+	1. int myStrLen(const char *);
+		or 
+	 int myStrLen(const char []);
+======================================================
+Implement this
+--------------
+	2.  char *myStrCpy(char *, const char *);
+		or 
+		char []myStrCpy(char [], const char []);
+		
+	3. 	char *myStrCat(char *, const char *);
+		or 
+		char []myStrCat(char [], const char []);
+		
+	4. 	int myStrCmp(const char *, const char *);
+		or 
+		int myStrCmp(const char [], const char []);
+---------------------------------------------------------
+How the compilation works in C/C++?
+	In C, Compilation is done in 2 phases.	
+		first.c  (program/ASCII text file)
+			|
+			| --> Pre-Processing 
+			|
+		first.i (source file/intermediate file)
+			| 
+			| --> Compilation (I Phase)
+			|
+		first.o (Object file )
+			|
+			|--> Linking (II Phase)
+			|
+		first.exe (Executable file)
+		
+		---> 
+			first.s --> assembly code 
+				is an intermediary step between intermediary file and object file.
+				
+Pre-Processing directive:
+	Instruction to your pre-processor. Pre-processor  does very basic text processing, manipulation.
+	
+	All pre-processor instruction/directives start with # symbol. 
+For example:	
+	find the file with the given filename and include the contents of the file as part of my code.	
+	
+	#include <stdio.h>
+		or 
+	#include "stdio.h"
+	
+	#include <dir/file.h>
+		or
+	#include "dir/file.h"
+		--> <> or "" 
+			these symbol define where to start searching for the file to be included.
+			
+		<> --> default include directory --> /usr/include/
+		"" --> first search your current working directory(CWD) if file does not exist then goto default include directory.
+
+	#include <arpa/inet.h>
+	
+There are lots of other pre-processor directives: most commonly used are...
+		#define 
+		#ifdef
+		#ifndef
+		#else 
+		#endif
+		#if 
+
+		#pragma
+-------------------------------------------------------------
+	2 D Arrays:
+	-----------
+		Integer arrays 
+		--------------
+			Array of Rows, where each row is an One Dimensional array, so 2 D can be defined as an array of 1 D arrays.
+			
+		int arr[][3] = {{10}, {20}, {30}, {40}, {50}};
+		
+It is a matrix of 5 X 3 
+------------------------
+		10 0 0
+		20 0 0
+		30 0 0
+		40 0 0
+		50 0 0
+===================================================
+Optional Task:
+--------------
+	Please Try some problems on 2 D arrays like matrix representation and manipulation along with printing differently.
+==========================================================	
+Next Topic:
+----------
+	character arrays
+	----------------
+
+	Brief Intro to pointers:
+	------------------------
+	
