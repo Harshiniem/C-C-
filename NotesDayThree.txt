@@ -1,0 +1,115 @@
+Day 3: 23-Dec-2025
+------------------
+character arrays --> 2 D arrays
+-------------------------------
+	array of 1 D arrays.
+		--> 1 D character array terminated by null character is referred to as a string in C.
+	
+		So, I can say 2 D character array are array of strings.
+		
+		if I say, one string is one name, then collection of names can be 2 D arrays.
+		
+		char name[] = "Sudhakar Palanivelu";
+		
+		char names[][15] = {"Name One", "Name Two", "Name Three", "Name Four", "Name Five"};
+===========================================================
+Operators:
+----------
+1. Sum of 2 numbers by accepting 2 numbers from the user.
+2. Simple Interest Calcalulator by accepting principal, rate and duration--> (P * R * T ) / 100	--> Interest.
+	Amount = Principal + Interest.
+3. Swapping  2 numbers using temporary variable.
+	
+Conditional:
+1. take name an age from the user.
+	say if the age is 5+ --> elemetary school
+					11+ --> middle school
+					14+ --> High School 
+					16+ ==> Pre-University
+					18+ --> Under graduation..
+					
+					21+ --> Adult.
+					
+	For accepting a name(strings in C):
+
+			char name[25];
+			printf("Enter a name");
+			scanf("%s", name);
+		
+2. largest of 3 numbers, where numbers are accepted by the user.
+
+3. Check whether the given Year is leap or not.
+
+Looping:
+--------
+1. Print first n numbers in fibonacci series, where n is accepted from user 
+
+2. Sum of first n numbers, where n is accepted from user 
+
+3. Using a loop implement the following?
+		1 + 2 ^ 1 + 2 ^ 2 + 2 ^ 3 +... 2 ^ n 
+		Where n is accepted from the user. Here n value cannot exceed 30 (validate using if).
+
+4. Count of digits in a number. Where number is accepted from the user.
+5. Reverse a number. Where number is accepted from the user.
+
+Nesting of Loops:
+-----------------
+	Print the following patterns:
+	Where n is accepted from the user for number of lines
+	
+	1. 	
+		*
+		* *
+		* * *
+		* * * *
+	2. 	
+		1
+		1 2
+		1 2 3
+		1 2 3 4
+	3. 	
+		* * * *
+		* * *
+		* *
+		*
+-------------------------------------------------
+Problems on C Strings:
+----------------------
+	1. char str[] = "Have a lengthy string here"
+		Count the number of words, characters and spaces.
+
+	2. Convert given string(short/lengthy) to 
+		--> upper case		
+			where all the characters are in upper case 
+		--> lower case		
+			where all the characters are in lower case 
+		--> title case 
+			where first character in each word is in upper case 
+	3. Reverse a String.
+	4. Find and replace a substring in a lengthy string. here substring and replacement substring can be of different length.
+	
+	2 D Strings:
+	------------
+		1. Read the longest string from a collection of  strings 
+		2. Sort names in alphabetical order
+		3. Accept a lenthy string as a string. Split each word and store them as separate string in a 2 D array.
+		(Converting 1 D to 2 D array)
+=========================================================
+Brief Intro to pointers:
+------------------------
+	Definition:
+	-----------
+		A Pointer is a variable that stores an address of another variable.
+		
+		When it comes to pointer, these two basic operators are the starting point.
+		
+			* --> value at (address)
+			& --> address of (variable)
+---------------------------------------------------------	
+	scanf("%d", &var);//address of variable
+	scanf("%d", 10); //run time error //segmentation fault
+===========================================================
+
+	
+	
