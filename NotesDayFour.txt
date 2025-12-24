@@ -1,0 +1,156 @@
+Day 4:
+-----
+	C++ Programming:
+	----------------
+		Previous 3 days code will work with minimal changes in C++.
+		
+		Instead of using printf, scanf we use, cout and cin
+		
+		Let me demonstrate:
+			
+		In addition to the operators in C, we have some more in C++. Here are some of them.
+		
+		
+		1. &  --> this is called reference variable in C++.
+			Modern C++.
+			
+		History of C++:
+			C with classes was introduce in 1980 by Bjarne Stroustrup in Bell Laboratory.
+			
+			Later in 1982, this was named as c++.
+			
+			In 1985, The C++ Programming Language  book was published  with features like virtual functions, function overloading and single line comments.
+			
+			1998 --> The first startd for C++ was released (ISO ) by including STL (Standard Template Library).
+			
+			2003 --> A minor revision to the C++98 standard was released to fix the issues raised in C++98 standard.
+			
+			2011 --> A major standard for C++ was introduced with auto keyword, multithreading, lambda expression, range based for loop and variadic templates were introduced
+				This version was a major turning point. That is why any C++ after 2011(C++11) as modern C++.
+				
+			After 2011 every 3 years new features and extra libraries are updated. 
+
+			2014 (C++14) --> generic lambdas
+			2017 (C++17) --> fold expression, inline variables
+			2020 (C++20) --> concepts, coroutines, ranges, modules.
+			2023 (C++23) --> More focus on refining the previous features to improving the usability
+	===================================================
+
+		int var = 100;
+	in modern C++:
+	--------------
+		auto var = 100;
+
+	:: --> Scope Resolution operator.
+	
+	Have you ever heard of scope of variables, functions.
+	-----------------------------------------------------	
+	void fun(int,int);	
+	int varThree = 50; //global variable
+	
+	int main(){
+		int varOne=5; // local variable 
+		//varOne, varThree
+		fun(10,20); // actual arguments 	
+	}
+	void fun(int a,int b) { //formal arguments/parameters	
+		int varTwo = 30; //local variable 
+		//varThree, varTwo, a , b
+		{
+			int varFour = 100;//local block
+			//varThree, varTwo, a , b, varFour		
+		}
+	}
+---------------------------------------------
+Memory Layout of a program:
+---------------------------
+
+Storage class specifier:
+------------------------
+	auto 
+	register
+	static 
+	extern 
+	
+Operators in C++:
+-----------------
+	Scope resolution operator:
+	--------------------------
+			:: --> 
+	In C++, in addition to scope supported by C, we also have access to .	
+		global scope -->
+		namespace scope 
+		class scope
+		
+	Dynamic memory allocation:
+	--------------------------
+		In C, we use functions from <stdlib.h> 
+			
+		ptr = malloc(size) //--> it will allocate memory in the heap segment of the given size and return the address.
+		
+		ptr = calloc(num, size);		
+		ptr = calloc(10, sizeof(int)); //10, 4 --> 40 Bytes
+			//it will allocate memory in a contiguous block for number of elements of given size mentioned 
+			
+		ptr = realloc(ptr, 80(total new size));
+			--> previously allocated 40 Bytes is now expanded to 80 Bytes (re-allocated)
+				
+		free(ptr);
+			--> will de-allocate/free the allocated memory.
+-------------------------------------------------------
+		int *iPtr;
+		char *cPtr;
+		double *dPtr;
+		
+		
+			//assuming pointers are initialized to some address.
+		
+			cPtr =iPtr ; //error in C++	
+			cout<<*iPtr<<endl; //dereferencing 
+				//referencing means address 
+				
+	1. Write a C++ program to declare 3 pointer variables of three different data types and initialize them with their respective variable address. 
+
+		Try copying one type of pointer to another without typecasting.
+		
+		Try the same program in C. Compare the results.
+		
+		LHS = (LHS type) RHS
+	  Type casting:	
+		iPtr = (int *) dPtr; // C Syntax
+		iPtr = static_cast<int *>(dPtr); //c++ style
+		
+	2. 	
+			
+		
+		
+	operators:
+	----------
+		new 
+		delete 
+		-----------
+			ptr = new int();
+			*ptr = 100;
+			or 
+			ptr = new int(100);
+			
+		new []
+			--> iPtr = new int[100];// 100 * sizeof(int)
+				
+		delete []
+			--> delete []iPtr;
+-----------------------------------------------------------
+2. Combine the given 2 programs. 
+		1. rand() usage and 
+		2. dynamic array with user given size.
+	Create a dynamic array with user given size, and fill the array with random values using rand(). Print the array.
+3. 	Use the previous question as data, find the sum and average of the array data.
+4. Find the largest and smallest number from the 2 question logic. 
+5. Reverse the data stored in dynamic array.
+6. Sort the dynamic array created with question #2 logic.
+===========================================================
+7. Try implementing 2 D dynamic array.
+8. Insert a new element into a dynamically allocated array(Created using question #2).
+	#Remember inserting or deleting at a position needs reallocation/resizing of the memory.
+9. Delete an element from dynamically allocated array(Created using question #2).
+============================================================
