@@ -1,0 +1,371 @@
+Day 5: (26-Dec-2025)
+--------------------
+	Functions in C++
+		call by value Vs reference Vs address
+		function overloading
+		function with default args.
+	
+	Object-oriented Programming Concepts
+	Classes and Objects
+		Classes Vs. Structs
+		Data Encapsulation
+		Key Principles
+			Abstraction
+			Polymorphism
+			Inheritance
+			Reusability
+				Composition vs. Aggregation vs. Inheritance
+	
+	Access Specifiers(public, private)
+	Member Functions
+	Constructors & Destructors, this pointer
+		Constructors
+			Default Constructor
+			Parameterized Constructor
+			Copy Constructor
+			Shallow Copy
+			Deep Copy
+		Destructors
+	this Pointer
+	Static Members
+		Static Variables in C and C++
+		Static Members in a Class
+==============================================================
+Functions in C++
+	function overloading
+	function with default args.
+	call by value Vs reference Vs address	
+	
+Function Overloading:
+---------------------
+	C++ is said to be a strong typed language. 
+	
+		void fun(int);
+		void fun(char);
+		void fun(float);
+		void fun(double);
+			Your compiler differentiates the differences in data types when coming to passing as arguments.
+			
+		Because C++ is strongly typed language, it is able to support function overloading.
+		
+		What is function overloading?
+			two or more functions having same name with different signature.
+			
+		What is a function signature?
+			name, number of arguments and the type of  arguments and the order in which these arguments are passed.
+			
+			Remember return type is not part of function signature.
+			
+			void fun(int, double);
+			void fun(double, int);
+			
+		How is this achieved.(How is your able achieve this).
+		
+			Every C++ function name is internally mangled/changed/decorated so that user given name is different from the compiler generated name. 
+			
+			This name change is reflected in the object code (after compilation), so the linker does not throw an error of re-definition.
+			
+			This process of name changing is referred to name mangling in Linux and Name Decoration in Windows.
+			
+		Conflicts in function overloading:
+		----------------------------------
+		function with default args:
+		---------------------------
+		
+			void fun(int =10);//in function prototype you can assign values to your argument list which we call default argument. 
+			
+			void fun(int a=10); //with argument name or no name
+			
+=======================================================
+Problem for practice:
+---------------------
+	1. Area Calculator(function overloading)
+		Create overloaded functions named area() to calculate:
+			Area of a square
+			Area of a rectangle
+			Area of a circle
+
+		Requirements
+			Same function name
+			Different parameter lists
+			Use appropriate data types			
+
+	2. Simple Interest(default arguments)
+			Create a function simpleInterest() with:
+				Principal
+				Rate (default = 5%)
+				Time (default = 1 year)
+				
+	3. Power Function
+			Create a function power() where:
+				Base is mandatory
+				Exponent is optional (default = 2)	
+			
+	4. Calendar Printer
+		Create a function printCalendar() with:
+			Day(default = 1)
+			Month (default = 12)
+			Year (default = 2025)
+===========================================================	
+Call by value Vs reference Vs address:
+--------------------------------------
+	actual arguments
+	formal arguments.
+	
+	
+	void fun(int );
+	
+	int main(){
+		int var = 10;//variable of main()
+		cout<<"Before Var: "<<var<<endl;
+		fun(var);	
+		cout<<"After Var: "<<var<<endl;
+	}
+	
+	void fun(int arg) //formal arguments
+	{
+		/// any changes to formal arguments, if it reflects on the actual argument then it is call by reference. Else it is call by value.	
+	}
+	
+	In C, the referencing is achieved through pointers. That is why we refer to call by address in C++.
+=====================================================
+	1. swap 2 values 
+		void swap(int *, int *);
+		void swap(int &, int &);
+		
+	2. Find min, max of values in an array. Pass arr along with Min and Max as reference or Address as argument.
+		void findMinMax(int *arr, int size, int &min, int &max);
+=======================================================	
+Object-oriented Programming Concepts:
+-------------------------------------
+	Key Principles
+		Abstraction
+		Encapsulation
+		Polymorphism
+		Inheritance
+	Object-oriented Programming Concepts
+		Classes and Objects
+		Classes Vs. Structs
+		Data Encapsulation
+============================================================
+	C With Classes:
+		The concept of Classes was introduced by Bjarne Stroustrup based on his understanding of a Simula. C++ is not the first Object-oriented Programming language. 
+		
+		There were other OOP languages like Algol, Simula.
+		
+		If a language is said to be an OOP language then it should support all the following 4 key principles.
+		
+		Key Principles
+        	Abstraction
+        	Encapsulation
+			Inheritance
+        	Polymorphism        	
+	======================================================
+	Abstraction(Implementation Hiding): 
+		Abstraction means showing only the essentail features with clear boundary by hiding the implementation details.
+		
+	Encapsulation(Data Hiding):
+		Encapsulation is the bundling of data and function that operator on that data into a single unit(Object). while restricting direct access to internal data(using private access specifier).
+		
+	Inheritance(Code re-use):
+		Inheritance allows a class to inherit (derive) the features(data and functions) of an existing class (Base/Super/Parent). The newly created class is referred to as Derived/Sub/Child class.
+		
+		By Inheriting from an existing class, you tend to re-use the existing class.
+		
+		Inheritance provide a way of code re-usability by derivation.
+		
+	Polymorphism(Many Forms):
+		Polymorphism allows the same interface (same name) to behave diffently depending on the object.
+		
+		When it comes to inheritance from OOP point of view, It is run-time polymorphism or function/method overriding.
+		
+		But for theoritical reasons,
+			Indian authors use the term 
+			
+			Compile time polymorphism (using function overloading and operator overloading).
+			
+			Runtime polymorphism: function overriding using inheritance and virtual functions.
+			
+	There are other code re-usable 	terminology in addition to Inheritance, Composition and Aggregation.
+	
+	You have to understand:
+		C++ is a superset of C. So whatever is supported in C will be supported in C++ as well. 
+		
+		In C, struct is used for creating a new data type by bringing different types of data types(which we call as members).
+		
+		struct Employee{
+			int id;
+			char name[25];
+			double sal;
+		};
+		
+		C is a procedure(function) oriented language. Where data is stored as separate variable and function which work on these data are passed as arguments. Here data and functions are separate.
+		
+		In C++, in order to provide backward compatibility C++ supports C syntax(i.e. struct). In addition to that C++ is an OOP language where it allows to combine both data and function together.
+		
+		struct Employee{
+			private:
+				int id;
+				char name[25];
+				double sal;
+			public:
+				void getDetails();
+				void dispDetails();
+        };
+		
+		or 
+		
+		class Employee{
+        	private:
+        		int id;
+        		char name[25];
+        		double sal;
+        	public:
+        		void getDetails();//function prototype
+        		void dispDetails();
+        };//blue print of an object
+		
+		Employee yuvaraj;//here yuvaraj is an object/variable of the class Employee.
+		
+		So the object is the one that is stored in the memory (real existence) where as class is just the skeleton structure or blue print to define them.
+		
+		Class is the unit for defining the object type. Once the class is defined, it can be used to create any number of objects.
+		
+	Problems to Solve:
+	------------------
+	1. Implement the class Calendar with the given data and methods(functions) as given below.
+	
+		class Calendar{
+			int day, month, Year;//private by default
+		public:
+			void setDate(int dd=1, mm=12, int yyyy=2025);
+			bool valideDate();
+			int dayOfWeek();
+			int maxDays();
+			bool isLeap();
+			void printCalendar();			
+		};
+		
+	2. 	Implement the class Num with the given data and methods as given below.
+	
+		class Num{
+			int num;
+		public:
+			void setNum(int n = 10);
+			void dispNum();
+			bool isEven();
+			bool isPrime();			
+		};
+		
+	3. 	Implement the class BankAccount with the given data and methods as given below.
+		Data:
+	    	Account number
+			Account holder name
+			Balance
+        Provide functions to:
+			setAccount --> Initial value of number, name and balance, 
+        	Deposit money
+        	Withdraw money
+        	Display balance
+----------------------------------------------------------
+
+Next Topic:
+-----------
+	Constructors
+		Default Constructor
+		Parameterized Constructor
+		Copy Constructor
+			Shallow Copy
+			Deep Copy
+	Destructor
+========================================================
+	int var; //declaration
+	var = 100; //assignment
+		or 
+	int var = 100; //initialization
+	--------------------------------
+		Constructor are special function in C++, which gets called when an object of a class is created.
+	
+		Why is Constructor a special function?
+			1. It has to have same name as class name exactly.
+			2. It does not have any return type, not even void.
+			3. It gets called automatically, when an object of the class is created.
+			
+		1. Normal functions does not have any restriction on names given by the user.
+		2. If a normal function does not return you have to mention void as its return type.
+		3. You have explicitly called.
+	
+		Destructor:
+		-----------
+			Its is also a special function like constructors, its name should start with ~className.
+			It gets called when an object(variable) goes out of scope.			
+			
+		Constructor Overloading:
+		------------------------	
+			Since constructors take in arguments, it can be overloaded.
+
+	Please provide the necessary constructors and destructor to the problems mentioned before.
+=========================================================
+	Built-in Data type		| User Defined Data Type
+	-------------------		| -----------------------
+	int var ;				| Num var;//default ctor
+	int var = 10;			| Num var = 10; //single parameter
+							|	ctor
+	int newVar = var;		| Num newVar = var; //copy ctor
+							|
+	--------------------------------------------------------
+================================================
+"public: __cdecl Test::Test(void)" (??0Test@@QEAA@XZ) 
+"public: __cdecl Test::Test(int)" (??0Test@@QEAA@H@Z) 
+"public: __cdecl Test::Test(class Test const &)" (??0Test@@QEAA@AEBV0@@Z)
+=====================================================	
+	Compiler generates constructors for a class if needed.	
+		
+	When is it needed. Under what scenario does you compiler generates constructor code for your class. 
+		1. If your class has a member(data member) which has a constructor defined. 
+		2. If your class inherits from a class which has a constructor defined.
+		3. If your class has a virtual function
+
+---------------------------------------------------------
+Try ctorFive.cpp program where char name[] is replaced with char *name;
+	here the string or name is a pointer to character array.
+	
+	#include <iostream>
+	#include <cstring>
+	using namespace std;
+
+	class Test{
+			char name[30]; //c style string //char *name;
+			int len;
+	public:
+			Test(const char arg[]="Some string") {
+					strcpy(name, arg);
+					len = strlen(arg);
+			}
+			void disp(){
+					cout<<"Len: "<<len<<"\tname: "<<name<<endl;
+			}
+			~Test(){        }
+	};
+
+	int main(){
+			Test obj;
+			obj.disp();
+	}
+-----------------------------------------------------------
+Problem 4:
+----------
+	Define a class MyArray, you provide constructors (default, single parameterized, copy), printArray(), extend(It will add new contents from an existing array).
+	
+	class MyArray{
+		int arr[100];
+		int size;
+	public:
+		MyArray();
+		MyArray(int data);
+		MyArray(const MyArray&);
+		void printArray();
+		void extend(const MyArray&);
+	};
+------------------------------------------------------------
+
