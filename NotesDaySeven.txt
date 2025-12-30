@@ -1,0 +1,171 @@
+Introduction to Inheritance	
+	Simple Inheritance
+	Multiple Inheritance
+	Multilevel Inheritance
+	Public, Protected, and Private Inheritance
+	Constructors in Inheritance
+Introduction to Polymorphism
+	Static Polymorphism
+	Dynamic Polymorphism
+--------------------------------------------------------
+Class room task:
+----------------
+	Ponder how this function is using static local variable. We are talking about strtok() in C.
+	----
+	Try to implement your own version.
+----------------------------------------------------------
+Inheritance:
+------------
+	Any statement resulting in 'IS A' relationship.
+	
+	We say Derived class object is a base class object.
+	
+	Student is a Person 
+	Employee is a Person 
+	
+	Car is a Vehicle 
+	Dog is an Animal
+	-------------------------------------
+		Base class represents the generic class where the Derived class represents specialized class. 
+	--------------------------------------------
+	Depending on the number of classes involved in inheritance, We can categorize as Simple(2 classes), Multilevel(3 Classes), Multiple (3 Classes), Hierarchial (3 classes) and Hybrid (4 classes).
+	
+	Conflicts in Multiple Inheritance:
+	----------------------------------
+		1. Traditionally we use scope resolution operator to resolve it 
+		2. In modern C++, we use using keyword.
+		
+	
+	Public, Protected, and Private Inheritance:
+	-------------------------------------------
+		Remember we did discuss, usage of classes. 
+		1. Through Instantiation (creating objects)
+		2. Through Derivation (using Inheritance)
+		
+		By both means, we tend to follow OOP principles. 
+			Encapsulation: where we tend to use private and public access specifier.
+			
+			Where private members are restricted to be accessed by non-member of a class.
+			We use public member of a class to access private members.
+			
+			This is straight forward, as the keywords mention.
+			i.e., private means accessible by the class members only.
+			public means can be accessed by same class members or other class member or non-member (global functions).
+			
+			If you want to Inherit, you can inherit public members only. 
+			
+			In order to have members have private access, but to be able to inherit, for such access, C++ provides protected access specifier.
+			
+			Protected member of a class cannot be accessed directly through instatiation, where as can be inherited(Derived).
+			
+			When you inherit publicly using public mode of inheritance
+				the inherited members from base class (i.e., protected and public member will retain their original access specifier). In Derived class, the base class protected members will be protected members, and base class public members will be public.
+				
+			Where as when you inherit protectedly using protected mode of inheritance
+				All the inherited members will become protected members in derived class. (Both protected and public members will become protected members inside derived class)
+			
+			Where as when you inherit privately using private mode of inheritance
+				All the inherited members will become private members in derived class. (Both protected and public members will become private members inside derived class)
+------------------------------------------------------------
+Next Topic:
+-----------			
+Introduction to Polymorphism
+	Static Polymorphism
+	Dynamic Polymorphism			
+-----------------------------------------------------------
+Polymorphism:
+-------------
+	One interface, many forms or one name, many function
+	
+	If you consider from the above statement saying that one name many forms, we can categorize polymorphism into static (compile-time) and dynamic (run-time). 
+	
+	Static Polymorphism:
+		also referred to as compile-time polymorphism, people also refer to as eary binding(which statement /function call is to call which function is decided at compile-time)
+		for example:
+			function overloading (which we have already discussed)
+			operator overloading (we will discuss next)
+		
+	Dynamic Polymorphism:
+		also referred to as run-time polymorphism, people also refer to as late binding(which statement /function call is to call which function is decided at run-time)
+			function overriding (virtual functions) which shall be discussed in detail later. 
+==========================================================
+Before getting into operator overloading, we have to be aware of 2 concepts
+	1. friend (We have already discuss this)
+	2. this pointer
+----------------------------------------
+	class Test{
+	public:
+		void funOne(){}// void funOne(const Test *this){ }
+	};
+	
+	int main(){
+		Test objOne;
+		Test objTwo;
+		
+		objOne.funOne();//funOne(&objOne)
+		objTwo.funOne();//funOne(&objTwo)
+	}
+	
+	All instance member functions has an implicit first formal argument called this, which stores the address of the calling object. 
+	
+	In C++, 'this' is a keyword which is used inside the instance member function.
+	
+	When to use this keyword?
+	-------------------------
+		1. When your formal argument name is same as the data member name, then you have to use it.
+		2. When you want to return your calling object. Programmers usually use this for method chaining.
+	-----------------------------------------------------
+	Operator Overloading:
+	---------------------
+		There are plenty of operators available in C++ and C++ provides the user to overload these operators so that they can work with user defined data type(class or struct)
+		
+		How do we overload an operator?
+			Just like any function, these special functions can be used. Here is the syntax:
+			
+			returnType operator Symbol();
+				Here operator is a keyword and Symbol is the operator which you would like to overload.
+				
+You have to consider various factors.
+-------------------------------------
+	1. Are we overloading as member or non-member function(global friend)
+	2. Is it Unary or Binary operator 
+	3. If Unary and it is a member function, then no argument is necessary.
+	If Unary and it is a Non-member function, then one argument is necessary.
+	4. If operator is Binary and it is used as a member function then one argument is necessary.
+	If overloaded as non-member then both the arguments are to be passed.
+---------------------------------------------------------
+	Num& operator++();	 // Prefix incrementation operator 
+	Num operator++(int); //Postfix incrementation
+	
+	Limitations on Operator overloading:
+	------------------------------------
+		Almost all the operators in C++ can be overloaded. These operators cannot be overloaded. 
+		1.  ?:, ::, ., sizeof(), typeid()
+		2. At least one of the operand should be user defined type (As the definition goes, providing the functionality so that these operators can work on user defined type)
+		3. Syntax of the operators cannot be altered.(if the operator is binary you can overload as binary only)
+		4. Precedence of the operators cannot be changed.
+Problems :
+	1. Implement your class Complex. with real and imag as data members. 
+		provide basic + and - operator overloading along with the insertion(<<) operator
+		
+	2. 	Implement a class Time(hrs, min) 
+			provide basic + and - operator overloading along with the insertion(<<) operator
+			
+			Time t1(2, 45), t2(1, 30);
+			Time t3 = t1 + t2; //4:15
+========================================================
+C++ provides a operator new for overloading. Remember this is not the new keyword that we use for memory allocation.
+
+	Operator new:
+		Operator new is a special operator function used to allocated memory dynamically.
+		For example:
+			Test *ptr = new Test(100);
+		Internally two things happen.
+			1. Calls operator new for allocating memory
+			2. Calls the constructor to initialize the object.
+			
+	You can overload this operator new.
+
+		1. Global operator new.
+		For example:
+============================================================
