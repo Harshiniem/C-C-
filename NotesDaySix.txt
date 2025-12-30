@@ -1,0 +1,194 @@
+Day 6: 29-Dec-2025
+------------------
+Next Topic:
+-----------
+	Constructors
+		Copy Constructor
+        	Shallow Copy
+        	Deep Copy
+	Destructor
+	
+	Static Variables in C and C++
+		Static Members in a Class
+	Friend Functions, Friend Classes
+		Friend Functions
+		Friend Classes
+		
+	Inheritance and Polymorphism
+		Introduction to Inheritance
+			Simple Inheritance
+			Multiple Inheritance
+			Multilevel Inheritance
+			Public, Protected, and Private Inheritance
+			Constructors in Inheritance
+---------------------------------------------------------	
+What is  a reference variable?
+	dataType & --> lvalue reference
+	dataType && --> rvalue reference (Modern C++)
+	
+	Reference variable is an aliases to an existing variable.
+		In an assignment variable, 
+			lhs = rhs;
+	
+		lhs should be an lvalue(variable with an name/location). 
+
+		rhs can be an lvalue or constants 
+
+		int var = 10;
+			var =20;
+		int varOne = var; 
+			varOne = 20 + var;
+			
+		int &refOne  = var;
+		int &refTwo = varOne;		
+=========================================================
+Copy Constructor:
+-----------------
+	Copy Semantics. 
+		Compiler provides copying semantics for any class. i.e I user does not provide copy constructor your code will work the same way as you overload(provide) your own copy constructor(user defined copy ctor).
+
+	When do overload your copy constructor:
+		Remember copy constructor is used when you initialize your object with object of its own type.
+		Compiler provides copy semantics i.e., it helps to copy object of its own type without providing copy constructor.
+		
+		As long has you dont have pointer as a data member, you dont have to overload your copy constructor.
+		
+		If you have a pointer as a data member which involves dynamic memory allocation, this will result in a dangling pointer(an issue). 
+	
+		So the compiler provided copy constructor performs memberwise/bitwise/shallow copy of your objects. As long as not pointers are involved this is fine.
+		
+		When a pointer is involved, memberwise/bitwise /shallow copy results in dangling pointer. 
+		
+		Because of memberwise/bitwise copy which results in dangling pointer, which is called shallow copy.
+	How do we handle it. 
+		1. We provide our own copy constructor. Which inturn should handle separate memory allocation and copying the contents.
+		
+		When user define constructor provides the above mentioned operations (1. allocate new memory. 2. copying contents). Then such a copy constructor is referred to as deep copy.
+--------------------------------------------------------
+Class room Practice:
+-------------------
+1. 	Create a class which a pointer as a data member(you may have other members) with dynamic memory.
+	
+	Task:
+		Pass object by value to a function
+		Track how many times copy constructor is called
+		Explain shallow vs deep impact
+------------------------------------------------------
+Remember is a system, CPU is a resource, file is a resource, network is a resource, memory is a resource.
+ 
+2.  Create a class Resource that has a pointer as a data member that(store these resources as string in a char *ptr):
+		Allocates memory dynamically
+		Uses default copy behavior
+	Task:
+		Copy objects
+		Destroy them
+		Demonstrate double deletion problem
+		Fix it using deep copy
+----------------------------------------------------------
+Problem #1:
+-----------
+	Implement a class MyString so that, 
+	1. It represents an array of characters which is allocated dynamically 
+	2. Perform deep copy by defining default, single parameterized and copy constructor. Also provide destructor.
+	
+	Data members:
+		char *data;//stores null terminated string  
+		unsigned int len;//stores the length 
+	Functions:
+		default constructor // creates an empty string 
+		single parameterized ctor // allocate memory an store the string. 
+		copy constructor // Deep copy 
+		Destructor //release the allocated memory 
+		
+		unsigned int size()const; //returns length
+		const char *cStr()const; //returns data 
+		void disp() const; //prints length and data 
+=========================================================
+	Static Variables in C and C++
+		Static Members in a Class		
+	
+	Remember we discussed on static variables in C. i.e., variable can be local or global. It gets stored in data or bss segment of the memory.
+	
+	When it comes to C++, we can have a static member (data or function) of a class.
+	We call such a member as a class member. i.e., to say one copy per class. This data member will be shared by all the objects of the class. 
+		For example:
+			class Employee{
+				id, name, sal; //normal(instance) members 
+				static string companyName;//declaration
+			public:
+				static string company(){ return companyName;}
+			};
+			
+			
+			string Employee::companyName = "Wipro Ltd";
+			
+			
+	
+		Instance members: --> one copy per object. 
+		Class members: --> one copy per class.
+		
+Problems:
+--------
+	2. Object Counter:
+		Create a class Counter with:
+			A static data member to count number of objects created
+			Increment count in constructor
+			Display total objects created
+	
+	3. Employee ID Generator
+		Create a class Employee with:
+			Static data member nextID
+			Automatically assign unique IDs to employees
+
+	4. Singleton Counter (Controlled Instance)
+		Create a class that:
+			Uses static member to allow only one object
+			Prevents multiple instantiations
+===========================================================
+	4. Singleton Counter (Controlled Instance)
+		Create a class that:
+			Uses static member to allow only one object
+			Prevents multiple instantiations
+			
+	Solution:
+		1. create a static pointer of the same class as a data member. 
+		2. have your constructors in private.
+		3. Provide a public function to access this single object.
+============================================================
+	Friend Functions, Friend Classes
+		Friend Functions
+		Friend Classes
+------------------------------------------------------------
+	When we talk about functions, we talk about members(instance member or class members ). There are non-members as in C++ (Global function/ members of another class). 
+	
+	Remember When we talk about data/function hiding(by having them in private), only members of the class can have access to it. Non-members are external functions cannot access private members directly.
+	
+	So we use friend keyword to introduce a function to a class so that we can access private members through object of the class.
+	
+	So to summarize:
+		A friend function 
+			a. is a non member function 
+			b. can access private or protected members of that class. (By allowing your are breaking encapsulation(data hiding) intentionally and selectively).
+-----------------------------------------------------------
+Friend class:
+-------------
+	If a class is a friend, then it allows all the members of the class to access private/protected members.
+-----------------------------------------------------------	
+Next Topic:
+-----------
+	Introduction to Inheritance	
+		Simple Inheritance
+		Multiple Inheritance
+		Multilevel Inheritance
+		Public, Protected, and Private Inheritance
+		Constructors in Inheritance
+------------------------------------------------------------
+Code reusability:
+----------------
+	1. One way of using a class is by creating objects and using the member through that object.
+		This method is called instantiation. 
+	2. Second method is to use inheritance. In order to use we need to have an existing class, which in turn in inherited(creating a new class). 
+		This method is called derivation.
+------------------------------------------------------------
+
+
